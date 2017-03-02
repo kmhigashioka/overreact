@@ -4,7 +4,7 @@
   "description": "Cli template generator for React/Redux.",
   "main": "index.js",
   "bin": {
-    "kaz": "index.js"
+    "overreact": "./bin/overreact"
   },
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/_mocha libs/**/**/*.test.js",

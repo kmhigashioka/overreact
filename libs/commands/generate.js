@@ -11,7 +11,7 @@ function generate(type, name, options = {}, config = {}) {
 
   if (!generator) {
     console.log(`Could not find a generator for ${type}`);
-    console.log('Run `kaz generate --help` for more options.');
+    console.log('Run `overreact generate --help` for more options.');
     return;
   }
 

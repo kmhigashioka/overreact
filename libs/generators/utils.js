@@ -23,7 +23,7 @@ module.exports = {
 function ensureModuleNameProvided(name) {
   if (! checkForFeatureName(name)) {
     console.log(`Invalid name: ${name}. Did you remember to provide the module name?`);
-    console.log('Run `kaz generate --help` for more options.');
+    console.log('Run `overreact generate --help` for more options.');
     process.exit(1);
   }
 }
@@ -36,7 +36,7 @@ function checkForFeatureName(str) {
 function ensureModuleExists(moduleName) {
   if (! checkFileExists(`./app/features/${moduleName}`)) {
     console.log(`A feature named ${moduleName} does not exist. Try to generate it first.`);
-    console.log('Run `kaz generate --help` for more options.');
+    console.log('Run `overreact generate --help` for more options.');
     process.exit(1);
   }
 }
