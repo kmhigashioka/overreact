@@ -77,11 +77,26 @@ function getTemplatePath(type, options = {}) {
       case 'component':
         relativePath = `../../templates/components/spec.tt`;
         break;
+      case 'container':
+        relativePath = `../../templates/containers/spec.tt`;
+        break;
+      case 'duck.action':
+        relativePath = `../../templates/duck/spec-action.tt`;
+        break;
+      case 'duck.reducer':
+        relativePath = `../../templates/duck/spec-reducer.tt`;
+        break;
     }
   } else {
     switch(type) {
       case 'component':
         relativePath = `../../templates/components/generic.tt`;
+        break;
+      case 'container':
+        relativePath = `../../templates/containers/redux-decorator.tt`;
+        break;
+      case 'duck':
+        relativePath = `../../templates/duck/duck.tt`;
         break;
     }
   }
@@ -93,6 +108,7 @@ function getOutputPath(type, entityName, featureName) {
   let outputFileName = `${_.kebabCase(entityName)}.js`;
   
   switch(type) {
+    case 'duck': return `./app/features/${featureName}/duck.js`;
     default: return `./app/features/${featureName}/${type}s/${outputFileName}`; 
   }
 }
@@ -104,6 +120,15 @@ function getTemplateVariables(type, featureName, fileName, options = {}) {
         featureName: _.snakeCase(featureName),
         componentName: _.upperFirst(_.camelCase(fileName))
       };
+    case 'container':
+      return {
+        featureName: _.snakeCase(featureName),
+        componentName: _.upperFirst(_.camelCase(fileName)),
+        componentFilename: `${_.kebabCase(fileName)}.js`,
+        containerName: `${_.upperFirst(_.camelCase(fileName))}Container`
+      };
+    case 'duck':
+      return {};
 
     default: return {};
   }
@@ -140,7 +165,11 @@ function _generateTest(type, featureName, entityName, config) {
 
 function getTestOutputPath(type, entityName, featureName) {
   let outputFileName = `${_.kebabCase(entityName)}.spec.js`;
-  return `./app/features/${featureName}/${type}s/${outputFileName}`;
+  switch(type) {
+    case 'duck.action': return `./app/features/${featureName}/duck.action.spec.js`;
+    case 'duck.reducer': return `./app/features/${featureName}/duck.reducer.spec.js`;
+    default: return `./app/features/${featureName}/${type}s/${outputFileName}`;
+  }
 }
 
 function getTestTemplateVariables(type, featureName, fileName) {
@@ -149,6 +178,23 @@ function getTestTemplateVariables(type, featureName, fileName) {
       return {
         featureName: _.snakeCase(featureName),
         componentName: _.upperFirst(_.camelCase(fileName))
+      };
+
+    case 'container':
+      return {
+        featureName: _.snakeCase(featureName),
+        containerName: `${_.upperFirst(_.camelCase(fileName))}Container`,
+        containerFilename: `${_.kebabCase(fileName)}.js`
+      };
+
+    case 'duck.action':
+      return {
+        featureName: _.snakeCase(featureName)
+      };
+    
+    case 'duck.reducer':
+      return {
+        featureName: _.snakeCase(featureName)
       };
 
     default: return {};

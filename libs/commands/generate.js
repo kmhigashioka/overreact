@@ -1,4 +1,5 @@
 var generateComponent = require('../generators/component');
+var generateContainer = require('../generators/container');
 
 module.exports = {
   getGenerator,
@@ -26,7 +27,8 @@ function generate(type, name, options = {}, config = {}) {
 
 function getGenerator (type) {
   var generatorMap = {
-    component: generateComponent
+    component: generateComponent,
+    container: generateContainer
   };
 
   return generatorMap[type];

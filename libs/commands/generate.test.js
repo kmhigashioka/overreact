@@ -18,6 +18,12 @@ describe('generate commands', () => {
 
       expect(generator).not.to.equal(undefined);
     });
+
+    it('should find valid generator for container', () => {
+      const generator = getGenerator('container');
+
+      expect(generator).not.to.equal(undefined);
+    });
   });
 
   describe('.validateName()', () => {
