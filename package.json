@@ -1,6 +1,6 @@
 {
-  "name": "busy-architect",
-  "version": "0.1.0",
+  "name": "overreact",
+  "version": "1.0.0-rc1",
   "description": "Cli template generator for React/Redux.",
   "main": "index.js",
   "bin": {
