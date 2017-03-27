@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "js-yaml": "^3.8.2",
     "mocha": "^3.2.0"
   }
 }

@@ -1,15 +1,18 @@
 'use strict';
 
-var program = require('commander');
-var {generate} = require('./libs/commands/generate');
-var nodePackage = require('./package');
+const program = require('commander');
+const {generate} = require('./libs/commands/generate');
+const nodePackage = require('./package');
+const {readConfig} = require('./libs/utils');
 
 program
   .command('generate [type] [name]')
   .alias('g')
   .version(nodePackage.version)
-  .action(function (type, name) {
-    generate(type, name);
+  .action(function (type, name, options) {
+    const config = readConfig();
+
+    generate(type, name, options, config);
   });
 
 program.parse(process.argv);
