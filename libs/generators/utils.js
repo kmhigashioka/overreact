@@ -60,13 +60,13 @@ function _generate(type, moduleName, entityName, options, config) {
 function readTemplateContent(type, templateOptions, config) {
   // First, try to get custom template from config
   // If cannot find custom template, return the default
-  // if (checkForCustomTemplate(config, type, templateOptions)) {
-  //   let templateConfig = getCustomTemplate(config, type, templateOptions);
-  //   return templateConfig.text;
-  // } else {
+  if (checkForCustomTemplate(config, type, templateOptions)) {
+    let templateConfig = getCustomTemplate(config, type, templateOptions);
+    return templateConfig.text;
+  } else {
     let templatePath = getTemplatePath(type, templateOptions);
     return fs.readFileSync(templatePath);
-  // }
+  }
 }
 
 function getTemplatePath(type, options = {}) {
@@ -199,4 +199,22 @@ function getTestTemplateVariables(type, featureName, fileName) {
 
     default: return {};
   }
+}
+
+function checkForCustomTemplate(config, entityType, options) {
+  if (!config.templates) {
+    return false;
+  }
+  const template = getCustomTemplate(config, entityType, options);
+  return !_.isEmpty(template);
+}
+
+function getCustomTemplate(config, entityType, {testTemplate = false}) {
+  const selector = {name: entityType};
+  if(testTemplate) {
+    selector.test = true;
+  }
+  const templateConfig = _.find(config.templates, selector);
+
+  return templateConfig;
 }
