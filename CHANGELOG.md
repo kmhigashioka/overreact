@@ -1,3 +1,9 @@
+# 1.1.1 (April 15, 2017)
+
+### Bug Fixes
+
+* Fix dependency. (js-yaml)
+
 # 1.1.0 (April 13, 2017)
 
 ### Features
