@@ -1,6 +1,6 @@
 # Overreact
 
-[![Build Status](https://travis-ci.org/kazupooot/overreact.svg?branch=master)](https://travis-ci.org/kazupooot/overreact)
+[![Build Status](https://travis-ci.org/kmhigashioka/overreact.svg?branch=master)](https://travis-ci.org/kmhigashioka/overreact)
 
 A command line interface tool for generating template for React/Redux.
 Inspired by [mantra-cli](https://github.com/mantrajs/mantra-cli).
