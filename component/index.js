@@ -1,4 +1,5 @@
 const componentDir = 'src/components/{{name}}';
+const componentExists = require('../utils/componentExists');
 
 module.exports = {
   description: 'Generate a component',
@@ -8,6 +9,15 @@ module.exports = {
       name: 'name',
       message: 'Name of component:',
       default: 'Button',
+      validate: value => {
+        if (/.+/.test(value)) {
+          return componentExists(value)
+            ? `Component (${value}) already exists.`
+            : true;
+        }
+
+        return 'Component name is required.';
+      },
     },
   ],
   actions: [
