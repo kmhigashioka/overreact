@@ -3,24 +3,11 @@
   "version": "1.1.1",
   "description": "Cli template generator for React/Redux.",
   "main": "index.js",
-  "bin": {
-    "overreact": "./bin/overreact"
-  },
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/_mocha libs/**/**/*.test.js",
-    "test:watch": "npm test -- -w"
+    "test": ""
   },
   "author": "Kazuhito Higashioka",
   "license": "MIT",
-  "dependencies": {
-    "colors": "^1.1.2",
-    "commander": "^2.9.0",
-    "fs-extra": "^2.0.0",
-    "js-yaml": "^3.8.2",
-    "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
