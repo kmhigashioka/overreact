@@ -4,10 +4,12 @@
   "description": "Cli template generator for React/Redux.",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "generate": "plop"
   },
   "author": "Kazuhito Higashioka",
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "plop": "^2.4.0"
+  }
 }
