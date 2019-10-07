@@ -36,5 +36,10 @@ module.exports = {
       path: `${componentDir}/types.ts`,
       templateFile: './component/types.ts.hbs',
     },
+    {
+      type: 'add',
+      path: `${componentDir}/{{name}}.spec.tsx`,
+      templateFile: './component/Component.spec.tsx.hbs',
+    },
   ],
 };
