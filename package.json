@@ -2,7 +2,7 @@
   "name": "overreact",
   "version": "1.1.1",
   "description": "Cli template generator for React/Redux.",
-  "main": "index.js",
+  "main": "plopfile.js",
   "scripts": {
     "generate": "plop"
   },
